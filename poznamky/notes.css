@@ -1,0 +1,87 @@
+
+/* ---------------- adding notes ---------------- */
+
+.notes-wrap {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.note-box {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.note-box input,
+.note-box textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.note-box input:focus,
+.note-box textarea:focus {
+  outline: none;
+  border-color: #e63946;
+}
+
+#addBtn {
+  background-color: #e63946;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#addBtn:hover {
+  background-color: #c92c3b;
+}
+
+/* ---------------- adding notes ---------------- */
+
+
+
+/* ---------------- added notes ---------------- */
+
+.note-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.note-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.note-card p {
+  color: #444;
+}
+
+.remove-btn {
+  margin-top: 10px;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remove-btn:hover {
+  background-color: #c92c3b;
+}
+
+/* ---------------- added notes ---------------- */

@@ -1,0 +1,34 @@
+.shopitems{
+    display: flex;
+    justify-content: center;
+}
+
+.header{
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.item {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 300px;
+  border: 1px solid #ccc;
+}
+
+.item h3 {
+  margin-bottom: 8px;
+}
+.item button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #e63946;
+  color: white;
+}
+
+.item button:hover {
+  background-color: #c92c3b;
+}

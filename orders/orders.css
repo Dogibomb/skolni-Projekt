@@ -1,0 +1,10 @@
+#header {
+  margin-bottom: 20px;
+}
+.order {
+  background-color: white;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  width: 320px;
+}

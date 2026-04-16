@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop</title>
+  <link rel="stylesheet" href="shop.css">
+  <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../basicsetup.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a class="logo-link" href="../index/index.html"><h1 class="logo">CRM Lite</h1></a>
+  <ul class="nav-links"> 
+    <li><a href="#">Zákazníci</a></li>
+    <li><a href="../poznamky/notes.html">Poznámky</a></li> 
+    <li><a href="#">Komunikace</a></li> 
+    <li><a href="../orders/orders.html">Objednávky</a></li>
+  </ul>
+    <a href="/login/login.html" class="login-btn">Přihlasit se</a>
+  </nav>
+
+  <section class="header">
+    <h1>Objednávky služeb</h1>
+<p>Vyber službu a vytvoř objednávku</p>
+  </section>
+
+
+
+<section class="shopitems">
+    <div class="item">
+  <h3>Počítač</h3>
+  <p>Cena: 30000 Kč</p>
+  <button onclick="buyItem('Počítač', 30000)">Koupit</button>
+</div>
+
+<div class="item">
+  <h3>Mobil</h3>
+  <p>Cena: 10000 Kč</p>
+  <button onclick="buyItem('Mobil', 10000)">Koupit</button>
+</div>
+
+<div class="item">
+  <h3>Tablet</h3>
+  <p>Cena: 5000 Kč</p>
+  <button onclick="buyItem('Tablet', 5000)">Koupit</button>
+</div>
+</section>
+
+
+<script src="shop.js"></script>
+</body>
+</html>
