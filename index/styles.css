@@ -1,22 +1,3 @@
-/* ----------------- info ----------------- */
-
-.info {
-  text-align: center;
-  padding: 100px 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
-.info h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-.info p {
-  font-size: 18px;
-}
-
-/* ----------------- info ----------------- */
-
 .primary-btn {
   display: inline-block;
   margin-top: 30px;
@@ -29,6 +10,7 @@
 
 /* ----------------- info-square ----------------- */
 .info-square {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   gap: 30px;

@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+$je_admin = false;
+
+if (isset($_SESSION["is_admin"])) {
+    if ($_SESSION["is_admin"] === true) {
+        $je_admin = true;
+    }
+}
+
+if ($je_admin === false) {
+    header("Location: ../shop/shop.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -10,14 +26,14 @@
 </head>
 <body>
   <nav class="navbar">
-    <a class="logo-link" href="../index/index.html"><h1 class="logo">CRM Lite</h1></a>
+    <a class="logo-link" href="../index/index.php"><h1 class="logo">CRM Lite</h1></a>
   <ul class="nav-links"> 
     <li><a href="#">Zákazníci</a></li>
-    <li><a href="../poznamky/notes.html">Poznámky</a></li> 
+    <li><a href="../poznamky/notes.php">Poznámky</a></li> 
     <li><a href="#">Komunikace</a></li> 
-    <li><a href="../orders/orders.html">Objednávky</a></li>
+    <li><a href="../orders/orders.php">Objednávky</a></li>
   </ul>
-    <a href="/login/login.html" class="login-btn">Přihlasit se</a>
+    <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
   </nav>
 
     <section class="notes-wrap">
@@ -34,3 +50,4 @@
   <script src="note.js"></script>
 </body>
 </html>
+
