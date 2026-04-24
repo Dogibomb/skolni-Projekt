@@ -10,7 +10,7 @@ if (isset($_SESSION["is_admin"])) {
 }
 
 if ($je_admin === false) {
-    header("Location: ../shop/shop.html");
+    header("Location: ../shop/shop.php");
     exit;
 }
 ?>

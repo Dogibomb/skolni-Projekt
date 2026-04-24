@@ -13,7 +13,7 @@ if ($je_admin === true) {
     header("Location: index/index.php");
     exit;
 } else {
-    header("Location: shop/shop.html");
+    header("Location: shop/shop.php");
     exit;
 }
 ?>

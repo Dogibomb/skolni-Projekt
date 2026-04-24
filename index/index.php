@@ -10,7 +10,7 @@ if (isset($_SESSION["is_admin"])) {
 }
 
 if ($je_admin === false) {
-    header("Location: ../shop/shop.html");
+    header("Location: ../shop/shop.php");
     exit;
 }
 ?>
@@ -61,7 +61,7 @@ if ($je_admin === false) {
       <p>Přehled záznamů o komunikaci se zákazníky.</p>
     </div>
   </a>
-    <a href="../shop/shop.html">
+    <a href="../shop/shop.php">
       <div class="square">
       <h3>Obchod</h3>
     </div>

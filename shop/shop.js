@@ -1,18 +1,18 @@
 function buyItem(name, price) {
-  let orders = localStorage.getItem("orders");
-
-  if (orders === null) {
-    orders = [];
-  } else {
-    orders = JSON.parse(orders);
-  }
-
-  orders.push({
-    product: name,
-    price: price
-  });
-
-  localStorage.setItem("orders", JSON.stringify(orders));
-
-  alert("Objednáno");
+  fetch("create_order.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ product: name, price: price })
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data && data.ok) {
+        alert("Objednáno (uloženo do DB)");
+      } else {
+        alert("Chyba: " + (data && data.error ? data.error : "unknown"));
+      }
+    })
+    .catch(err => {
+      alert("Chyba: " + err);
+    });
 }

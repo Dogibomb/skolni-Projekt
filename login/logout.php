@@ -10,7 +10,7 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 
-header("Location: ../shop/shop.html");
+header("Location: ../shop/shop.php");
 exit;
 ?>
 

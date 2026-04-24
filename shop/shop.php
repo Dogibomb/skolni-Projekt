@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -10,13 +12,15 @@
 <body>
 
   <nav class="navbar">
-    <a class="logo-link" href="../shop/shop.html"><h1 class="logo">CRM Lite</h1></a>
+    <a class="logo-link" href="../shop/shop.php"><h1 class="logo">CRM Lite</h1></a>
+      <?php if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true): ?>
   <ul class="nav-links"> 
     <li><a href="#">Zákazníci</a></li>
     <li><a href="../poznamky/notes.php">Poznámky</a></li> 
     <li><a href="#">Komunikace</a></li> 
     <li><a href="../orders/orders.php">Objednávky</a></li>
   </ul>
+  <?php endif; ?>
     <a href="/login/login.php" class="login-btn">Přihlasit se</a>
   </nav>
 
