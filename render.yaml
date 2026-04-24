@@ -7,9 +7,9 @@ services:
     healthCheckPath: /
     envVars:
       - key: SUPABASE_DB_HOST
-        value: "aws-0-eu-central-1.pooler.supabase.com"
+        value: "aws-0-eu-west-1.pooler.supabase.com"
       - key: SUPABASE_DB_PORT
-        value: "6543"
+        value: "5432"
       - key: SUPABASE_DB_NAME
         value: "postgres"
       - key: SUPABASE_DB_USER
