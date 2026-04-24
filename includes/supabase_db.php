@@ -4,10 +4,10 @@ require_once __DIR__ . "/env.php";
 
 function supabase_pdo(): PDO
 {
-    $host = env("SUPABASE_DB_HOST", "db.lsbxkkttofyozlqzvkhe.supabase.co");
-    $port = env("SUPABASE_DB_PORT", "5432");
+    $host = env("SUPABASE_DB_HOST", "aws-0-eu-central-1.pooler.supabase.com");
+    $port = env("SUPABASE_DB_PORT", "6543");
     $db = env("SUPABASE_DB_NAME", "postgres");
-    $user = env("SUPABASE_DB_USER", "postgres");
+    $user = env("SUPABASE_DB_USER", "postgres.lsbxkkttofyozlqzvkhe");
     $pass = env("SUPABASE_DB_PASSWORD", "skolniprojekt");
     $sslmode = env("SUPABASE_DB_SSLMODE", "require");
 
