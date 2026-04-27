@@ -18,4 +18,3 @@ services:
         value: "skolniprojekt"
       - key: SUPABASE_DB_SSLMODE
         value: "require"
-

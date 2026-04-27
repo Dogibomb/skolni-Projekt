@@ -4,7 +4,7 @@ require_once __DIR__ . "/env.php";
 
 function supabase_pdo(): PDO
 {
-    $host = env("SUPABASE_DB_HOST", "aws-0-eu-central-1.pooler.supabase.com");
+    $host = env("SUPABASE_DB_HOST", "aws-0-eu-west-1.pooler.supabase.com");
     $port = env("SUPABASE_DB_PORT", "5432");
     $db = env("SUPABASE_DB_NAME", "postgres");
     $user = env("SUPABASE_DB_USER", "postgres.lsbxkkttofyozlqzvkhe");
