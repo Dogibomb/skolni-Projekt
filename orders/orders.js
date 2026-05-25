@@ -22,7 +22,6 @@ fetch("list_orders.php")
         <strong>${o.name}</strong> — ${o.email}<br>
         Produkt: ${o.product}<br>
         Cena: ${o.price} Kč<br>
-        Stav: ${o.status}<br>
         Čas: ${o.created_at}
       </div>
     `).join("");

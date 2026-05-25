@@ -3,7 +3,7 @@ require_once __DIR__ . "/../includes/bootstrap.php";
 
 $chyba = "";
 
-// pokud je uz prihlasen jako admin, posli ho na hlavni stranku
+// pokud je uz prihlasen jako admin, posle ho na hlavni stranku
 if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true) {
     header("Location: ../index/index.php");
     exit;

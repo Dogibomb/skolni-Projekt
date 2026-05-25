@@ -3,7 +3,6 @@ require_once __DIR__ . "/../includes/bootstrap.php";
 
 header("Content-Type: application/json; charset=utf-8");
 
-// pouze POST
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
     echo json_encode(["ok" => false, "error" => "metoda neni povolena"]);
@@ -40,8 +39,8 @@ try {
         exit;
     }
 
-    // tady vlozi objednavku do databaze vcetne jmena a emailu uzivatele
-    $stmt = db()->prepare("insert into public.orders (user_id, product, price, status, name, email) values (:uid, :prod, :price, 'new', :name, :email)");
+    // tady vlozi objednavku do databaze 
+    $stmt = db()->prepare("insert into public.orders (user_id, product, price, name, email) values (:uid, :prod, :price, :name, :email)");
     $stmt->execute([
         ":uid" => $_SESSION["user_id"],
         ":prod" => $product,

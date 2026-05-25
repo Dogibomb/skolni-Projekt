@@ -4,7 +4,7 @@ require_once __DIR__ . "/../includes/bootstrap.php";
 $chyba = "";
 $uspech = "";
 
-// pokud je uz prihlasen, posli ho jinam
+// pokud je uz prihlasen, posle ho na index
 if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true) {
     header("Location: ../index/index.php");
     exit;
