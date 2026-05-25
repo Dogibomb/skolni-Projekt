@@ -19,7 +19,7 @@ if ($je_admin === false) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRM Lite – Správa kontaktů</title>
+  <title>CRM Lite - Správa kontaktů</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../basicsetup.css">

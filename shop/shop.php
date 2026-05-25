@@ -1,5 +1,12 @@
-<?php session_start(); ?>
+<?php
+session_start();
 
+// tady zkontroluje jestli je uzivatel prihlasen, jinak ho posle na login
+if (!isset($_SESSION["user_id"])) {
+    header("Location: ../login/login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -13,45 +20,40 @@
 
   <nav class="navbar">
     <a class="logo-link" href="../shop/shop.php"><h1 class="logo">CRM Lite</h1></a>
-      <?php if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true): ?>
-  <ul class="nav-links"> 
-    <li><a href="#">Zákazníci</a></li>
-    <li><a href="../poznamky/notes.php">Poznámky</a></li> 
-    <li><a href="#">Komunikace</a></li> 
-    <li><a href="../orders/orders.php">Objednávky</a></li>
-  </ul>
-  <?php endif; ?>
-    <a href="/login/login.php" class="login-btn">Přihlasit se</a>
+    <?php if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true): ?>
+      <ul class="nav-links">
+        <li><a href="#">Zákazníci</a></li>
+        <li><a href="../poznamky/notes.php">Poznámky</a></li>
+        <li><a href="#">Komunikace</a></li>
+        <li><a href="../orders/orders.php">Objednávky</a></li>
+      </ul>
+    <?php endif; ?>
+    <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
   </nav>
 
   <section class="header">
     <h1>Objednávky služeb</h1>
-<p>Vyber službu a vytvoř objednávku</p>
+    <p>Vyber službu a vytvoř objednávku</p>
   </section>
 
-
-
-<section class="shopitems">
+  <section class="shopitems">
     <div class="item">
-  <h3>Počítač</h3>
-  <p>Cena: 30000 Kč</p>
-  <button onclick="buyItem('Počítač', 30000)">Koupit</button>
-</div>
+      <h3>Počítač</h3>
+      <p>Cena: 30 000 Kč</p>
+      <button onclick="buyItem('Počítač', 30000)">Koupit</button>
+    </div>
+    <div class="item">
+      <h3>Mobil</h3>
+      <p>Cena: 10 000 Kč</p>
+      <button onclick="buyItem('Mobil', 10000)">Koupit</button>
+    </div>
+    <div class="item">
+      <h3>Tablet</h3>
+      <p>Cena: 5 000 Kč</p>
+      <button onclick="buyItem('Tablet', 5000)">Koupit</button>
+    </div>
+  </section>
 
-<div class="item">
-  <h3>Mobil</h3>
-  <p>Cena: 10000 Kč</p>
-  <button onclick="buyItem('Mobil', 10000)">Koupit</button>
-</div>
-
-<div class="item">
-  <h3>Tablet</h3>
-  <p>Cena: 5000 Kč</p>
-  <button onclick="buyItem('Tablet', 5000)">Koupit</button>
-</div>
-</section>
-
-
-<script src="shop.js"></script>
+  <script src="shop.js"></script>
 </body>
 </html>
