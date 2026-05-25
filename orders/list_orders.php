@@ -12,7 +12,7 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 
 try {
     // tady vytahne vsechny objednavky z databaze 
-    $stmt = db()->query("select id, user_id, name, email, product, price, status, created_at from public.orders order by created_at desc");
+    $stmt = db()->query("select id, user_id, name, email, product, price, created_at from public.orders order by created_at desc");
     $rows = $stmt->fetchAll();
     echo json_encode(["ok" => true, "orders" => $rows]);
 } catch (Throwable $e) {
