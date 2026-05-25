@@ -1,12 +1,4 @@
-<?php
-session_start();
-
-// tady zkontroluje jestli je uzivatel prihlasen, jinak ho posle na login
-if (!isset($_SESSION["user_id"])) {
-    header("Location: ../login/login.php");
-    exit;
-}
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -24,11 +16,17 @@ if (!isset($_SESSION["user_id"])) {
       <ul class="nav-links">
         <li><a href="#">Zákazníci</a></li>
         <li><a href="../poznamky/notes.php">Poznámky</a></li>
-        <li><a href="#">Komunikace</a></li>
         <li><a href="../orders/orders.php">Objednávky</a></li>
       </ul>
     <?php endif; ?>
-    <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    <?php if (isset($_SESSION["user_id"])): ?>
+      <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    <?php else: ?>
+      <a href="/login/login.php" class="login-btn">Přihlásit se</a>
+    <?php endif; ?>
+    <?php if (isset($_SESSION["user_id"])): ?>
+      <a href="/profile/profile.php" style="color: white; margin-right: 15px; text-decoration: none;">Profil</a>
+    <?php endif; ?>
   </nav>
 
   <section class="header">
