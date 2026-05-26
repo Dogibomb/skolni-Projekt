@@ -7,7 +7,6 @@
 }
 
 .shop-header p {
-  color: #888;
   font-size: 14px;
   margin-top: 4px;
 }
@@ -41,7 +40,6 @@
 }
 
 .item-price {
-  color: #888;
   font-size: 14px;
   flex: 1;
 }

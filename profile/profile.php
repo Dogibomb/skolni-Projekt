@@ -61,7 +61,6 @@ $user = $stmt->fetch();
   </section>
 
   <script>
-    // tady prepne mezi zobrazenim a skrytim hesla
     const heslo = "<?= htmlspecialchars($user['password'], ENT_QUOTES) ?>";
     let zobrazeno = false;
 
