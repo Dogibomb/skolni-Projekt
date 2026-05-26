@@ -8,4 +8,3 @@ function env(string $key, ?string $default = null): ?string
     }
     return $val;
 }
-

@@ -27,12 +27,14 @@
 .login-box button {
   padding: 10px;
   border: none;
-  background-color: #20232a;
+  background-color: #e63946;
   color: white;
   border-radius: 6px;
+  cursor: pointer;
 }
+
 .login-box button:hover {
-  background-color: #111827;
+  background-color: #c92c3b;
 }
 .login-note {
   margin-top: 15px;

@@ -8,3 +8,11 @@
   border: 1px solid #ccc;
   width: 320px;
 }
+.customer-link {
+  color: #e63946;
+  text-decoration: none;
+}
+
+.customer-link:hover {
+  text-decoration: underline;
+}

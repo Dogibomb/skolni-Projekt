@@ -1,6 +1,5 @@
 const list = document.getElementById("orderList");
 
-// tady nacte objednavky ze serveru
 fetch("list_orders.php")
   .then(r => r.json())
   .then(data => {
@@ -16,10 +15,12 @@ fetch("list_orders.php")
       return;
     }
 
-    // tady projde vsechny objednavky a vypise je na stranku
+    // tady projde vsechny objednavky a vypise je, jmeno je odkaz na zakaznika
     list.innerHTML = orders.map(o => `
       <div class="order">
-        <strong>${o.name}</strong> — ${o.email}<br>
+        <a href="../customers/customer.php?user_id=${o.user_id}" class="customer-link">
+          <strong>${o.name}</strong>
+        </a> — ${o.email}<br>
         Produkt: ${o.product}<br>
         Cena: ${o.price} Kč<br>
         Čas: ${o.created_at}

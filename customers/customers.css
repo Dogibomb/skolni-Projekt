@@ -1,0 +1,43 @@
+.customer-wrap {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #e63946;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.customer-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.customer-box h2 {
+  margin-bottom: 10px;
+}
+
+.orders-title {
+  margin-bottom: 15px;
+}
+
+.order-row {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
