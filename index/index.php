@@ -31,7 +31,6 @@ if ($je_admin === false) {
   <ul class="nav-links"> 
     <li><a href="#">Zákazníci</a></li>
     <li><a href="../poznamky/notes.php">Poznámky</a></li> 
-    <li><a href="#">Komunikace</a></li> 
     <li><a href="../orders/orders.php">Objednávky</a></li>
   </ul>
     <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
@@ -53,14 +52,6 @@ if ($je_admin === false) {
       <h3>Poznámky</h3>
       <p>Možnost zapisovat důležité informace ke každému zákazníkovi.</p>
     </div>
-  </a>
-    <a href="../komunikace/comms.html">
-      <div class="square">
-      <img src="../img/chat.svg" alt="Evidence zákazníků">
-      <h3>Komunikace</h3>
-      <p>Přehled záznamů o komunikaci se zákazníky.</p>
-    </div>
-  </a>
     <a href="../shop/shop.php">
       <div class="square">
       <h3>Obchod</h3>

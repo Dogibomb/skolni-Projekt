@@ -30,7 +30,6 @@ if ($je_admin === false) {
   <ul class="nav-links"> 
     <li><a href="#">Zákazníci</a></li>
     <li><a href="../poznamky/notes.php">Poznámky</a></li> 
-    <li><a href="#">Komunikace</a></li> 
     <li><a href="../orders/orders.php">Objednávky</a></li>
   </ul>
     <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
