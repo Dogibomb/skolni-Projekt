@@ -1,46 +1,66 @@
-.primary-btn {
-  display: inline-block;
-  margin-top: 30px;
-  background: #e63946;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 8px;
-  text-decoration: none;
+.dashboard-header {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.dashboard-header p {
+  color: #666;
+  font-size: 15px;
 }
 
 /* ----------------- info-square ----------------- */
 .info-square {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 24px;
   flex-wrap: wrap;
+  padding: 0 40px 60px;
 }
+
 .info-square a {
   text-decoration: none;
   color: black;
 }
+
 .square {
   background: white;
   padding: 30px 25px;
   border-radius: 12px;
-  max-width: 260px;
-  min-height: 260px;
+  width: 220px;
+  min-height: 220px;
   text-align: center;
-  border: 1px solid #ddd;
+  border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .square:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
+
 .square img {
-  width: 50px;
-  margin-bottom: 15px;
+  width: 44px;
+  margin-bottom: 5px;
+}
+
+.square h3 {
+  font-size: 16px;
+}
+
+.square p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
 }
 /* ----------------- info-square ----------------- */

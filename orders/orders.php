@@ -1,15 +1,7 @@
 <?php
 session_start();
 
-$je_admin = false;
-
-if (isset($_SESSION["is_admin"])) {
-    if ($_SESSION["is_admin"] === true) {
-        $je_admin = true;
-    }
-}
-
-if ($je_admin === false) {
+if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
     header("Location: ../shop/shop.php");
     exit;
 }
@@ -18,7 +10,7 @@ if ($je_admin === false) {
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <title>Historie objednávek</title>
+  <title>Objednávky</title>
   <link rel="stylesheet" href="orders.css">
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../basicsetup.css">
@@ -27,23 +19,21 @@ if ($je_admin === false) {
 
   <nav class="navbar">
     <a class="logo-link" href="../index/index.php"><h1 class="logo">CRM Lite</h1></a>
-  <ul class="nav-links"> 
-    <li><a href="#">Zákazníci</a></li>
-    <li><a href="../poznamky/notes.php">Poznámky</a></li> 
-    <li><a href="../orders/orders.php">Objednávky</a></li>
-  </ul>
-    <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    <ul class="nav-links">
+      <li><a href="../customers/customers.php">Zákazníci</a></li>
+      <li><a href="../poznamky/notes.php">Poznámky</a></li>
+      <li><a href="../orders/orders.php">Objednávky</a></li>
+    </ul>
+    <div class="navbar-right">
+      <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    </div>
   </nav>
 
+  <section class="orders-wrap">
+    <h1>Historie objednávek</h1>
+    <div id="orderList"></div>
+  </section>
 
-<h1 id="header">Historie objednávek</h1>
-
-
-
-
-<div id="orderList"></div>
-
-<script src="orders.js"></script>
+  <script src="orders.js"></script>
 </body>
 </html>
-

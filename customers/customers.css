@@ -1,43 +1,51 @@
-.customer-wrap {
+.customers-wrap {
   max-width: 700px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 20px;
-  color: #e63946;
-  text-decoration: none;
-  font-size: 14px;
+.customers-wrap h1 {
+  font-size: 24px;
+  margin-bottom: 24px;
 }
 
-.back-link:hover {
-  text-decoration: underline;
-}
-
-.customer-box {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 25px;
-  margin-bottom: 30px;
-}
-
-.customer-box h2 {
-  margin-bottom: 10px;
-}
-
-.orders-title {
-  margin-bottom: 15px;
-}
-
-.order-row {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 12px 20px;
-  margin-bottom: 10px;
+.customer-row {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.customer-row:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  transform: translateX(3px);
+}
+
+.customer-name {
+  font-weight: 600;
+  font-size: 15px;
+  flex: 1;
+}
+
+.customer-email {
+  color: #666;
+  font-size: 14px;
+  flex: 2;
+}
+
+.customer-arrow {
+  color: #e63946;
+  font-size: 16px;
+}
+
+.empty {
+  color: #666;
+  font-size: 15px;
 }

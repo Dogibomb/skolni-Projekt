@@ -5,36 +5,64 @@
   background-color: #20232a;
   color: #fff;
   padding: 15px 40px;
+  gap: 20px;
 }
+
 .logo {
   font-size: 22px;
   letter-spacing: 1px;
   color: white;
-  transition: 1s;
-}
-.logo:hover{
-    font-size: 25px;
-    color: rgb(128, 27, 128);
+  transition: color 0.3s;
 }
 
-.logo-link{
-    text-decoration: none;
+.logo:hover {
+  color: #e63946;
 }
+
+.logo-link {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
   gap: 30px;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-links a {
-  color: #fff;
+  color: #ccc;
   text-decoration: none;
   font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s;
 }
 
 .nav-links a:hover {
-  text-decoration: underline;
+  color: #fff;
 }
+
+/* skupinka tlacitek vpravo */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.nav-profile-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.nav-profile-link:hover {
+  color: #fff;
+}
+
 .login-btn {
   background-color: #e63946;
   border: none;
@@ -42,13 +70,11 @@
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s;
 }
+
 .login-btn:hover {
   background-color: #c92c3b;
-}
-.login-btn {
-  color: white;
-  text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
 }

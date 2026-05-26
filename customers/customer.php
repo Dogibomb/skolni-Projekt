@@ -9,7 +9,7 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 $user_id = isset($_GET["user_id"]) ? (int)$_GET["user_id"] : 0;
 
 if ($user_id === 0) {
-    header("Location: ../orders/orders.php");
+    header("Location: customers.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ $stmt->execute([":id" => $user_id]);
 $customer = $stmt->fetch();
 
 if (!$customer) {
-    header("Location: ../orders/orders.php");
+    header("Location: customers.php");
     exit;
 }
 
@@ -43,32 +43,34 @@ $orders = $stmt->fetchAll();
   <nav class="navbar">
     <a class="logo-link" href="../index/index.php"><h1 class="logo">CRM Lite</h1></a>
     <ul class="nav-links">
-      <li><a href="#">Zákazníci</a></li>
+      <li><a href="../customers/customers.php">Zákazníci</a></li>
       <li><a href="../poznamky/notes.php">Poznámky</a></li>
       <li><a href="../orders/orders.php">Objednávky</a></li>
     </ul>
-    <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    <div class="navbar-right">
+      <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+    </div>
   </nav>
 
   <section class="customer-wrap">
 
-    <a href="../orders/orders.php" class="back-link">← Zpět na objednávky</a>
+    <a href="customers.php" class="back-link">← Zpět na zákazníky</a>
 
     <div class="customer-box">
       <h2><?= htmlspecialchars($customer["name"]) ?></h2>
-      <p><strong>Email:</strong> <?= htmlspecialchars($customer["email"]) ?></p>
+      <p><strong>Email:</strong> <?= htmlspecialchars($customer["email"] ?? '—') ?></p>
     </div>
 
-    <h3 class="orders-title">Objednávky zákazníka</h3>
+    <h3 class="orders-title">Objednávky (<?= count($orders) ?>)</h3>
 
     <?php if (count($orders) === 0): ?>
-      <p>Žádné objednávky</p>
+      <p class="empty">Žádné objednávky</p>
     <?php else: ?>
       <?php foreach ($orders as $o): ?>
         <div class="order-row">
-          <span><?= htmlspecialchars($o["product"]) ?></span>
-          <span><?= $o["price"] ?> Kč</span>
-          <span><?= $o["created_at"] ?></span>
+          <span class="order-product"><?= htmlspecialchars($o["product"]) ?></span>
+          <span class="order-price"><?= number_format($o["price"], 0, ',', ' ') ?> Kč</span>
+          <span class="order-date"><?= $o["created_at"] ?></span>
         </div>
       <?php endforeach; ?>
     <?php endif; ?>

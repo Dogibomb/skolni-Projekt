@@ -12,21 +12,25 @@
 
   <nav class="navbar">
     <a class="logo-link" href="../shop/shop.php"><h1 class="logo">CRM Lite</h1></a>
+
     <?php if (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] === true): ?>
       <ul class="nav-links">
-        <li><a href="#">Zákazníci</a></li>
+        <li><a href="../customers/customers.php">Zákazníci</a></li>
         <li><a href="../poznamky/notes.php">Poznámky</a></li>
         <li><a href="../orders/orders.php">Objednávky</a></li>
       </ul>
-    <?php endif; ?>
-    <?php if (isset($_SESSION["user_id"])): ?>
-      <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
     <?php else: ?>
-      <a href="/login/login.php" class="login-btn">Přihlásit se</a>
+      <ul class="nav-links"></ul>
     <?php endif; ?>
-    <?php if (isset($_SESSION["user_id"])): ?>
-      <a href="/profile/profile.php" style="color: white; margin-right: 15px; text-decoration: none;">Profil</a>
-    <?php endif; ?>
+
+    <div class="navbar-right">
+      <?php if (isset($_SESSION["user_id"])): ?>
+        <a href="/profile/profile.php" class="nav-profile-link">Profil</a>
+        <a href="/login/logout.php" class="login-btn">Odhlásit se</a>
+      <?php else: ?>
+        <a href="/login/login.php" class="login-btn">Přihlásit se</a>
+      <?php endif; ?>
+    </div>
   </nav>
 
   <section class="header">
@@ -37,17 +41,17 @@
   <section class="shopitems">
     <div class="item">
       <h3>Počítač</h3>
-      <p>Cena: 30 000 Kč</p>
+      <p class="item-price">30 000 Kč</p>
       <button onclick="buyItem('Počítač', 30000)">Koupit</button>
     </div>
     <div class="item">
       <h3>Mobil</h3>
-      <p>Cena: 10 000 Kč</p>
+      <p class="item-price">10 000 Kč</p>
       <button onclick="buyItem('Mobil', 10000)">Koupit</button>
     </div>
     <div class="item">
       <h3>Tablet</h3>
-      <p>Cena: 5 000 Kč</p>
+      <p class="item-price">5 000 Kč</p>
       <button onclick="buyItem('Tablet', 5000)">Koupit</button>
     </div>
   </section>
