@@ -33,10 +33,10 @@
     </div>
   </nav>
 
-  <section class="header">
-    <h1>Objednávky služeb</h1>
-    <p>Vyber službu a vytvoř objednávku</p>
-  </section>
+  <section class="shop-header">
+  <h1>E-shop</h1>
+  <p>Objednejte si zboží</p>
+</section>
 
   <section class="shopitems">
     <div class="item">

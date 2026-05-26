@@ -1,63 +1,60 @@
-.header {
-  text-align: center;
-  padding: 50px 20px 30px;
+.shop-header {
+  padding: 40px 40px 10px;
 }
 
-.header h1 {
-  font-size: 28px;
-  margin-bottom: 8px;
+.shop-header h1 {
+  font-size: 26px;
 }
 
-.header p {
-  color: #666;
-  font-size: 15px;
+.shop-header p {
+  color: #888;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
 .shopitems {
   display: flex;
-  justify-content: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
-  padding: 20px 40px 60px;
+  padding: 30px 40px 60px;
 }
 
 .item {
   background-color: white;
-  padding: 30px 25px;
-  width: 260px;
+  padding: 24px;
+  width: 240px;
   border: 1px solid #e5e7eb;
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 .item:hover {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+  transition: all 0.2s;
 }
 
 .item h3 {
-  font-size: 18px;
+  font-size: 17px;
+  margin-bottom: 6px;
 }
 
 .item-price {
-  color: #666;
-  font-size: 15px;
+  color: #888;
+  font-size: 14px;
   flex: 1;
 }
 
 .item button {
-  margin-top: 10px;
-  padding: 10px 20px;
+  margin-top: 16px;
+  padding: 9px 18px;
   border: none;
   background-color: #e63946;
   color: white;
-  border-radius: 8px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s;
 }
 
 .item button:hover {
