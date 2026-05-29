@@ -98,11 +98,11 @@ $customersNoOrders = $stmtNo->fetchAll();
     <!-- tabs -->
     <div class="tabs">
       <button class="tab active" onclick="switchTab('with', this)">
-        ✅ S objednávkou
+        S objednávkou
         <span class="tab-count"><?= count($customersWithOrders) ?></span>
       </button>
       <button class="tab" onclick="switchTab('no', this)">
-        🕐 Bez objednávky
+        Bez objednávky
         <span class="tab-count"><?= count($customersNoOrders) ?></span>
       </button>
     </div>
@@ -114,7 +114,6 @@ $customersNoOrders = $stmtNo->fetchAll();
       <?php else: ?>
         <?php foreach ($customersWithOrders as $c): ?>
           <a href="customer.php?user_id=<?= $c['id'] ?>" class="customer-row">
-            <div class="customer-avatar"><?= htmlspecialchars(mb_substr($c['name'], 0, 1)) ?></div>
             <div class="customer-info">
               <div class="customer-name"><?= htmlspecialchars($c['name']) ?></div>
               <div class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></div>

@@ -114,20 +114,7 @@ body {
 
 
 
-.customer-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #f0ecea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 14px;
-  color: #e63946;
-  flex-shrink: 0;
-  text-transform: uppercase;
-}
+
 
 .customer-info {
   flex: 1;
