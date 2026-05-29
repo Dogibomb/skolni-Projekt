@@ -104,16 +104,13 @@ body {
   gap: 14px;
   background: #fff;
   border: 1px solid #e2e0db;
-  border-radius: 12px;
-  padding: 16px 20px;
+  border-radius: 6px;
+  padding: 10px 15px;
   margin-bottom: 8px;
   text-decoration: none;
   color: #333;
   transition: box-shadow 0.2s, transform 0.2s, border-color 0.15s;
 }
-
-
-
 
 
 .customer-info {
@@ -131,7 +128,6 @@ body {
 }
 
 .customer-email {
-  color: #999;
   font-size: 12px;
   margin-top: 1px;
   white-space: nowrap;
@@ -139,13 +135,7 @@ body {
   text-overflow: ellipsis;
 }
 
-.customer-arrow {
-  color: #ccc;
-  font-size: 14px;
-  transition: color 0.15s, transform 0.15s;
-}
-
-.customer-row:hover .customer-arrow {
+.customer-row:hover {
   color: #e63946;
   transform: translateX(2px);
 }

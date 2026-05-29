@@ -131,12 +131,10 @@ $customersNoOrders = $stmtNo->fetchAll();
       <?php else: ?>
         <?php foreach ($customersNoOrders as $c): ?>
           <a href="customer.php?user_id=<?= $c['id'] ?>" class="customer-row no-order">
-            <div class="customer-avatar"><?= htmlspecialchars(mb_substr($c['name'], 0, 1)) ?></div>
             <div class="customer-info">
               <div class="customer-name"><?= htmlspecialchars($c['name']) ?></div>
               <div class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></div>
             </div>
-            <span class="customer-arrow">→</span>
           </a>
         <?php endforeach; ?>
       <?php endif; ?>
