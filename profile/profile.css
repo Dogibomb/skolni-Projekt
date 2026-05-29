@@ -1,7 +1,7 @@
 .profile-wrap {
   max-width: 480px;
   margin: 60px auto;
-  padding: 0 20px;
+  padding: 0 20px 60px;
 }
 
 .profile-wrap h1 {
@@ -11,7 +11,6 @@
 
 .profile-box {
   background: white;
-  
 }
 
 .profile-item {
@@ -49,3 +48,62 @@
   border-color: #e63946;
   color: #e63946;
 }
+
+/* ---------------- orders section ---------------- */
+
+.orders-section {
+  margin-top: 36px;
+}
+
+.orders-section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.no-orders {
+  font-size: 14px;
+  color: #888;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-order-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  transition: box-shadow 0.2s;
+}
+
+.profile-order-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.profile-order-product {
+  font-weight: 600;
+  color: #111;
+  flex: 1;
+}
+
+.profile-order-price {
+  color: #e63946;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.profile-order-date {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+/* ---------------- orders section ---------------- */

@@ -6,9 +6,13 @@ if (!isset($_SESSION["user_id"])) {
     exit;
 }
 
-$stmt = db()->prepare('select name, email, password from public."Users" where id = :id limit 1');
+$stmt = db()->prepare('SELECT name, email, password FROM public."Users" WHERE id = :id LIMIT 1');
 $stmt->execute([":id" => $_SESSION["user_id"]]);
 $user = $stmt->fetch();
+
+$stmtOrders = db()->prepare("SELECT id, product, price, created_at FROM public.orders WHERE user_id = :uid ORDER BY created_at DESC");
+$stmtOrders->execute([":uid" => $_SESSION["user_id"]]);
+$orders = $stmtOrders->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -57,6 +61,25 @@ $user = $stmt->fetch();
           <button onclick="toggleHeslo()" id="toggle-btn">Zobrazit</button>
         </span>
       </div>
+    </div>
+
+    <div class="orders-section">
+      <h2>Moje objednávky</h2>
+      <?php if (count($orders) === 0): ?>
+        <p class="no-orders">Zatím žádné objednávky.</p>
+      <?php else: ?>
+        <div class="orders-list">
+          <?php foreach ($orders as $o): ?>
+            <div class="profile-order-card">
+              <div class="profile-order-product"><?= htmlspecialchars($o["product"]) ?></div>
+              <div class="profile-order-price"><?= number_format((int)$o["price"], 0, ',', ' ') ?> Kč</div>
+              <div class="profile-order-date">
+                <?= htmlspecialchars($o["created_at"]) ?>
+              </div>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </section>
 

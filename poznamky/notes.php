@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . "/../includes/bootstrap.php";
 
 if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
     header("Location: ../shop/shop.php");
@@ -34,8 +34,15 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
     <h2>Poznámky</h2>
 
     <form id="addNoteForm" class="note-box">
-      <input type="text" id="nameInput" placeholder="Jméno zákazníka">
-      <textarea id="textInput" placeholder="Napiš poznámku..."></textarea>
+      <div class="customer-select-wrap">
+        <label for="customerSelect">Zákazník</label>
+        <select id="customerSelect" required>
+          <option value="">— Vyber zákazníka —</option>
+          <optgroup label="✅ S objednávkou" id="groupWithOrders"></optgroup>
+          <optgroup label="🕐 Bez objednávky" id="groupNoOrders"></optgroup>
+        </select>
+      </div>
+      <textarea id="textInput" placeholder="Napiš poznámku..." rows="4"></textarea>
       <button type="submit" id="addBtn">Přidat poznámku</button>
     </form>
 
