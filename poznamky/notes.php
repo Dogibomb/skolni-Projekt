@@ -66,32 +66,37 @@ $notes = $stmtNotes->fetchAll();
   <section class="notes-wrap">
     <h2>Poznámky</h2>
 
-    <!-- search + form -->
-    <form method="GET" class="note-box" id="searchForm">
+    <!-- search (GET) -->
+    <div class="note-box" style="margin-bottom: 16px;">
       <div class="customer-select-wrap">
         <div class="field-group">
           <label for="customerSearch">Vyhledat zákazníka</label>
           <input
             type="text"
             id="customerSearch"
-            name="search"
             placeholder="Hledat jméno nebo email…"
             value="<?= htmlspecialchars($search) ?>"
             autocomplete="off"
           >
         </div>
-        <div class="field-group">
-          <label for="customerSelect">Zákazník (pouze ti s objednávkou)</label>
-          <select id="customerSelect" name="selected_user" required>
-            <option value="">— Vyber zákazníka —</option>
-            <?php foreach ($customers as $c): ?>
-              <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['name']) ?><?= $c['email'] ? ' (' . htmlspecialchars($c['email']) . ')' : '' ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
+      </div>
+    </div>
+
+    <!-- pridat poznamku (POST) -->
+    <form method="POST" action="save_note.php" class="note-box" id="addNoteForm">
+      <input type="hidden" name="action" value="add">
+      <input type="hidden" name="search" value="<?= htmlspecialchars($search) ?>">
+      <div class="field-group">
+        <label for="customerSelect">Zákazník (pouze ti s objednávkou)</label>
+        <select id="customerSelect" name="selected_user" required>
+          <option value="">— Vyber zákazníka —</option>
+          <?php foreach ($customers as $c): ?>
+            <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['name']) ?><?= $c['email'] ? ' (' . htmlspecialchars($c['email']) . ')' : '' ?></option>
+          <?php endforeach; ?>
+        </select>
       </div>
       <textarea name="text" id="textInput" placeholder="Napiš poznámku…" rows="4"></textarea>
-      <button type="submit" name="action" value="add" id="addBtn">Přidat poznámku</button>
+      <button type="submit" id="addBtn">Přidat poznámku</button>
     </form>
 
     <!-- poznamky -->
@@ -128,10 +133,7 @@ $notes = $stmtNotes->fetchAll();
     searchInput.addEventListener("input", function () {
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(() => {
-        // odesle jen search, bez action=add
-        const form = document.getElementById("searchForm");
-        const url = "notes.php?search=" + encodeURIComponent(searchInput.value.trim());
-        window.location.href = url;
+        window.location.href = "notes.php?search=" + encodeURIComponent(searchInput.value.trim());
       }, 400);
     });
   </script>
