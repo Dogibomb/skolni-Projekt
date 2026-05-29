@@ -1,11 +1,13 @@
-const form        = document.getElementById("addNoteForm");
-const notesArea   = document.getElementById("notesArea");
-const select      = document.getElementById("customerSelect");
-const groupWith   = document.getElementById("groupWithOrders");
-const groupNo     = document.getElementById("groupNoOrders");
+const form      = document.getElementById("addNoteForm");
+const notesArea = document.getElementById("notesArea");
+const select    = document.getElementById("customerSelect");
+const searchInput = document.getElementById("customerSearch");
 
-function loadData() {
-  fetch("list_notes.php")
+// nacte zakazniky a poznamky ze serveru
+function loadData(search = "") {
+  const url = "list_notes.php" + (search ? "?search=" + encodeURIComponent(search) : "");
+
+  fetch(url)
     .then(r => r.json())
     .then(data => {
       if (!data.ok) {
@@ -13,21 +15,19 @@ function loadData() {
         return;
       }
 
-      groupWith.innerHTML = "";
-      (data.customersWithOrders ?? []).forEach(c => {
+      // naplni select jenom zakaznikama kteri maji objednavku
+      const previousValue = select.value;
+      select.innerHTML = '<option value="">— Vyber zákazníka —</option>';
+
+      (data.customers ?? []).forEach(c => {
         const opt = document.createElement("option");
         opt.value = c.id;
         opt.textContent = c.name + (c.email ? " (" + c.email + ")" : "");
-        groupWith.appendChild(opt);
+        select.appendChild(opt);
       });
 
-      groupNo.innerHTML = "";
-      (data.customersNoOrders ?? []).forEach(c => {
-        const opt = document.createElement("option");
-        opt.value = c.id;
-        opt.textContent = c.name + (c.email ? " (" + c.email + ")" : "");
-        groupNo.appendChild(opt);
-      });
+      // obnov vybranou hodnotu pokud jeste existuje
+      if (previousValue) select.value = previousValue;
 
       renderNotes(data.notes ?? []);
     })
@@ -36,21 +36,28 @@ function loadData() {
     });
 }
 
-// Vykreslí pole poznámek
+// vyhledavani zakazniku pri psani
+let searchTimeout;
+searchInput.addEventListener("input", function () {
+  clearTimeout(searchTimeout);
+  searchTimeout = setTimeout(() => {
+    loadData(searchInput.value.trim());
+  }, 300);
+});
+
+// vykresli pole poznamek
 function renderNotes(notes) {
   if (notes.length === 0) {
     notesArea.innerHTML = "<p style='color:#888; margin-top:10px;'>Zatím žádné poznámky.</p>";
     return;
   }
-
   notesArea.innerHTML = "";
   notes.forEach(n => {
-    const card = createNoteCard(n);
-    notesArea.appendChild(card);
+    notesArea.appendChild(createNoteCard(n));
   });
 }
 
-// Vytvoří DOM element poznámky
+// vytvori DOM element poznamky
 function createNoteCard(n) {
   const card = document.createElement("div");
   card.className = "note-card";
@@ -68,7 +75,6 @@ function createNoteCard(n) {
 
   const meta = document.createElement("span");
   meta.className = "note-meta";
-  // Formátuj datum pokud existuje
   if (n.created_at) {
     const d = new Date(n.created_at);
     meta.textContent = d.toLocaleString("cs-CZ");
@@ -90,12 +96,12 @@ function createNoteCard(n) {
   return card;
 }
 
-// Odešle novou poznámku do DB
+// odesle novou poznamku do DB
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const user_id = select.value;
-  const text    = document.getElementById("textInput").value.trim();
+  const text = document.getElementById("textInput").value.trim();
 
   if (!user_id || text === "") return;
 
@@ -144,7 +150,7 @@ form.addEventListener("submit", function (e) {
     });
 });
 
-// Smaže poznámku z DB a odstraní kartu z DOM
+// smaze poznamku z DB a z DOMu
 function deleteNote(id, card) {
   fetch("save_note.php", {
     method: "DELETE",

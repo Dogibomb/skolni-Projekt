@@ -129,3 +129,18 @@
 }
 
 /* ---------------- added notes ---------------- */
+
+/* --- search input pro zakazniky --- */
+
+.customer-select-wrap input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background: white;
+}
+
+.customer-select-wrap input[type="text"]:focus {
+  outline: none;
+  border-color: #e63946;
+}

@@ -10,27 +10,32 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 }
 
 try {
-    // Zákazníci kteří mají alespoň jednu objednávku
-    $stmtWithOrders = db()->query('
-        SELECT DISTINCT u.id, u.name, u.email
-        FROM public."Users" u
-        INNER JOIN public.orders o ON o.user_id = u.id
-        WHERE u.name != \'admin\'
-        ORDER BY u.name
-    ');
-    $customersWithOrders = $stmtWithOrders->fetchAll();
+    // search parametr pro vyhledavani zakazniku
+    $search = trim($_GET["search"] ?? "");
 
-    // Zákazníci kteří nemají žádnou objednávku
-    $stmtNoOrders = db()->query('
-        SELECT u.id, u.name, u.email
-        FROM public."Users" u
-        LEFT JOIN public.orders o ON o.user_id = u.id
-        WHERE o.user_id IS NULL AND u.name != \'admin\'
-        ORDER BY u.name
-    ');
-    $customersNoOrders = $stmtNoOrders->fetchAll();
+    // jenom zakaznici kteri maji aspon jednu objednavku
+    if ($search !== "") {
+        $stmtCustomers = db()->prepare('
+            SELECT DISTINCT u.id, u.name, u.email
+            FROM public."Users" u
+            INNER JOIN public.orders o ON o.user_id = u.id
+            WHERE u.name != \'admin\'
+              AND (LOWER(u.name) LIKE LOWER(:search) OR LOWER(u.email) LIKE LOWER(:search))
+            ORDER BY u.name
+        ');
+        $stmtCustomers->execute([":search" => "%" . $search . "%"]);
+    } else {
+        $stmtCustomers = db()->query('
+            SELECT DISTINCT u.id, u.name, u.email
+            FROM public."Users" u
+            INNER JOIN public.orders o ON o.user_id = u.id
+            WHERE u.name != \'admin\'
+            ORDER BY u.name
+        ');
+    }
+    $customers = $stmtCustomers->fetchAll();
 
-    // Všechny poznámky z databáze
+    // vsechny poznamky z databaze
     $stmtNotes = db()->query('
         SELECT n.id, n.user_id, n.text, n.created_at, u.name as customer_name, u.email as customer_email
         FROM public.notes n
@@ -41,9 +46,8 @@ try {
 
     echo json_encode([
         "ok" => true,
-        "customersWithOrders" => $customersWithOrders,
-        "customersNoOrders"   => $customersNoOrders,
-        "notes"               => $notes,
+        "customers" => $customers,
+        "notes"     => $notes,
     ]);
 } catch (Throwable $e) {
     http_response_code(500);
