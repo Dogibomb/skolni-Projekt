@@ -10,7 +10,6 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 }
 
 try {
-    // search parametr pro vyhledavani zakazniku
     $search = trim($_GET["search"] ?? "");
 
     // jenom zakaznici kteri maji aspon jednu objednavku

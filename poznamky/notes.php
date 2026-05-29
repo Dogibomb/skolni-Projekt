@@ -35,15 +35,18 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 
     <form id="addNoteForm" class="note-box">
       <div class="customer-select-wrap">
-        <label for="customerSearch">Vyhledat zákazníka</label>
-        <input type="text" id="customerSearch" placeholder="Hledat jméno nebo email..." autocomplete="off">
-
-        <label for="customerSelect" style="margin-top: 10px;">Zákazník (pouze ti s objednávkou)</label>
-        <select id="customerSelect" required>
-          <option value="">— Vyber zákazníka —</option>
-        </select>
+        <div class="field-group">
+          <label for="customerSearch">Vyhledat zákazníka</label>
+          <input type="text" id="customerSearch" placeholder="Hledat jméno nebo email…" autocomplete="off">
+        </div>
+        <div class="field-group">
+          <label for="customerSelect">Zákazník (pouze ti s objednávkou)</label>
+          <select id="customerSelect" required>
+            <option value="">— Vyber zákazníka —</option>
+          </select>
+        </div>
       </div>
-      <textarea id="textInput" placeholder="Napiš poznámku..." rows="4"></textarea>
+      <textarea id="textInput" placeholder="Napiš poznámku…" rows="4"></textarea>
       <button type="submit" id="addBtn">Přidat poznámku</button>
     </form>
 

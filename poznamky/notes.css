@@ -1,146 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
-/* ---------------- adding notes ---------------- */
+* { box-sizing: border-box; }
 
+body {
+  background: #f5f4f1;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ---- wrap ---- */
 .notes-wrap {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 20px;
+  max-width: 820px;
+  margin: 48px auto;
+  padding: 0 24px 80px;
 }
 
+.notes-wrap h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+
+/* ---- form box ---- */
 .note-box {
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  border: 1px solid #ddd;
+  background: #fff;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid #e2e0db;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   margin-bottom: 40px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
+/* ---- search + select row ---- */
 .customer-select-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.field-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
-.customer-select-wrap label {
-  font-size: 13px;
+.field-group label {
+  font-size: 11px;
   font-weight: 600;
-  color: #444;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.customer-select-wrap input[type="text"],
+.customer-select-wrap select {
+  padding: 11px 14px;
+  border-radius: 9px;
+  border: 1.5px solid #e2e0db;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+  background: #fafaf8;
+  color: #111;
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .customer-select-wrap select {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  background: white;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
   cursor: pointer;
 }
 
+.customer-select-wrap input[type="text"]:focus,
 .customer-select-wrap select:focus {
   outline: none;
   border-color: #e63946;
+  background: #fff;
 }
 
+/* ---- textarea ---- */
 .note-box textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  border: 1.5px solid #e2e0db;
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
   resize: vertical;
+  background: #fafaf8;
+  color: #111;
+  transition: border-color 0.15s;
+  min-height: 100px;
 }
 
 .note-box textarea:focus {
   outline: none;
   border-color: #e63946;
+  background: #fff;
 }
 
+/* ---- submit button ---- */
 #addBtn {
   background-color: #e63946;
   color: white;
-  padding: 12px;
+  padding: 13px 20px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.1s;
 }
 
 #addBtn:hover {
   background-color: #c92c3b;
+  transform: translateY(-1px);
+}
+
+#addBtn:active {
+  transform: translateY(0);
 }
 
 #addBtn:disabled {
-  background-color: #ccc;
+  background-color: #d1cfc9;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* ---------------- adding notes ---------------- */
-
-
-
-/* ---------------- added notes ---------------- */
-
-.note-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.note-card h3 {
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-
-.note-email {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 8px;
-}
-
-.note-card p {
-  color: #444;
-  line-height: 1.5;
-}
-
-.note-meta {
-  display: block;
-  font-size: 12px;
+/* ---- notes list ---- */
+.no-notes {
   color: #aaa;
+  font-size: 14px;
   margin-top: 8px;
 }
 
+.note-card {
+  background: #fff;
+  border: 1px solid #e2e0db;
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.note-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  transform: translateY(-1px);
+}
+
+.note-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+  gap: 12px;
+}
+
+.note-card-header h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.note-meta {
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.note-email {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0 0 10px;
+}
+
+.note-text {
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 8px 0 12px;
+}
+
 .remove-btn {
-  margin-top: 10px;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  padding: 6px 14px;
+  margin-top: 2px;
+  background: none;
+  color: #bbb;
+  border: 1px solid #e2e0db;
+  padding: 5px 12px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .remove-btn:hover {
-  background-color: #c92c3b;
-}
-
-/* ---------------- added notes ---------------- */
-
-/* --- search input pro zakazniky --- */
-
-.customer-select-wrap input[type="text"] {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  background: white;
-}
-
-.customer-select-wrap input[type="text"]:focus {
-  outline: none;
+  color: #e63946;
   border-color: #e63946;
+}
+
+@media (max-width: 560px) {
+  .customer-select-wrap {
+    grid-template-columns: 1fr;
+  }
 }

@@ -114,8 +114,11 @@ $customersNoOrders = $stmtNo->fetchAll();
       <?php else: ?>
         <?php foreach ($customersWithOrders as $c): ?>
           <a href="customer.php?user_id=<?= $c['id'] ?>" class="customer-row">
-            <span class="customer-name"><?= htmlspecialchars($c['name']) ?></span>
-            <span class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></span>
+            <div class="customer-avatar"><?= htmlspecialchars(mb_substr($c['name'], 0, 1)) ?></div>
+            <div class="customer-info">
+              <div class="customer-name"><?= htmlspecialchars($c['name']) ?></div>
+              <div class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></div>
+            </div>
             <span class="customer-arrow">→</span>
           </a>
         <?php endforeach; ?>
@@ -129,8 +132,11 @@ $customersNoOrders = $stmtNo->fetchAll();
       <?php else: ?>
         <?php foreach ($customersNoOrders as $c): ?>
           <a href="customer.php?user_id=<?= $c['id'] ?>" class="customer-row no-order">
-            <span class="customer-name"><?= htmlspecialchars($c['name']) ?></span>
-            <span class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></span>
+            <div class="customer-avatar"><?= htmlspecialchars(mb_substr($c['name'], 0, 1)) ?></div>
+            <div class="customer-info">
+              <div class="customer-name"><?= htmlspecialchars($c['name']) ?></div>
+              <div class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></div>
+            </div>
             <span class="customer-arrow">→</span>
           </a>
         <?php endforeach; ?>
