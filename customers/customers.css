@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-
 * { box-sizing: border-box; }
 
 body {
   background: #f5f4f1;
-  font-family: 'DM Sans', sans-serif;
 }
 
 .customers-wrap {
@@ -14,7 +11,6 @@ body {
 }
 
 .customers-wrap h1 {
-  font-family: 'Syne', sans-serif;
   font-size: 32px;
   font-weight: 800;
   color: #111;
@@ -22,97 +18,100 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* --- search bar --- */
-
 .search-form {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .search-input {
   flex: 1;
-  padding: 11px 16px;
-  border: 1.5px solid #e2e0db;
-  border-radius: 10px;
+  padding: 12px 18px;
+  border: 1px solid #dcdad4;
+  border-radius: 12px;
   font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
   background: #fff;
-  color: #111;
-  transition: border-color 0.15s;
+  color: #222;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #e63946;
+  border-color: #a8a6a1;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
 .search-clear {
-  color: #aaa;
+  color: #777;
   font-size: 13px;
+  font-weight: 500;
   text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #e2e0db;
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1px solid #dcdad4;
   background: #fff;
-  transition: color 0.15s, border-color 0.15s;
+  transition: all 0.15s ease;
   white-space: nowrap;
 }
 
 .search-clear:hover {
   color: #e63946;
   border-color: #e63946;
+  background: #fff5f5;
 }
-
-/* --- tabs --- */
 
 .tabs {
   display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
+  gap: 10px;
+  margin-bottom: 24px;
+  background: #eeebe5;
+  padding: 4px;
+  border-radius: 12px;
+  width: fit-content;
 }
 
 .tab {
-  padding: 9px 18px;
-  border: 1.5px solid #e2e0db;
+  padding: 8px 16px;
+  border: none;
   border-radius: 9px;
-  background: #fff;
+  background: transparent;
   cursor: pointer;
   font-size: 13px;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  color: #666;
+  font-weight: 600;
+  color: #555;
   display: flex;
   align-items: center;
-  gap: 7px;
-  transition: all 0.15s;
+  gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .tab:hover {
-  border-color: #e63946;
-  color: #e63946;
+  color: #111;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .tab.active {
-  background: #e63946;
-  color: #fff;
-  border-color: #e63946;
+  background: #fff;
+  color: #111;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .tab-count {
-  background: rgba(0,0,0,0.10);
-  border-radius: 20px;
-  padding: 1px 8px;
+  background: #e4e0d8;
+  color: #555;
+  border-radius: 6px;
+  padding: 2px 6px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
+  transition: all 0.2s ease;
 }
 
 .tab.active .tab-count {
-  background: rgba(255,255,255,0.22);
+  background: #e63946;
+  color: #fff;
 }
-
-/* --- customer rows --- */
 
 .customer-row {
   display: flex;
@@ -147,7 +146,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 14px;
   color: #e63946;
@@ -164,7 +162,6 @@ body {
   font-weight: 600;
   font-size: 14px;
   color: #111;
-  font-family: 'Syne', sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

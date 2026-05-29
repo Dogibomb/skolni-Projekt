@@ -11,7 +11,7 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRM Lite – Dashboard</title>
+  <title>CRM Lite - Dashboard</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../basicsetup.css">
@@ -32,7 +32,6 @@ if (!isset($_SESSION["is_admin"]) || $_SESSION["is_admin"] !== true) {
 
   <section class="dashboard-header">
     <h1>Dashboard</h1>
-    <p>Vítej zpět, <?= htmlspecialchars($_SESSION["username"]) ?></p>
   </section>
 
   <section class="info-square">

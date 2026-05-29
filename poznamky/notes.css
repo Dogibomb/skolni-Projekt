@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-
 * { box-sizing: border-box; }
 
 body {
   background: #f5f4f1;
-  font-family: 'DM Sans', sans-serif;
 }
 
 /* ---- wrap ---- */
@@ -15,7 +12,6 @@ body {
 }
 
 .notes-wrap h2 {
-  font-family: 'Syne', sans-serif;
   font-size: 32px;
   font-weight: 800;
   color: #111;
@@ -64,7 +60,6 @@ body {
   border-radius: 9px;
   border: 1.5px solid #e2e0db;
   font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
   background: #fafaf8;
   color: #111;
   transition: border-color 0.15s, background 0.15s;
@@ -94,7 +89,6 @@ body {
   border-radius: 9px;
   border: 1.5px solid #e2e0db;
   font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
   resize: vertical;
   background: #fafaf8;
   color: #111;
@@ -117,7 +111,6 @@ body {
   border: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Syne', sans-serif;
   font-weight: 700;
   letter-spacing: 0.03em;
   transition: background 0.15s, transform 0.1s;
@@ -168,7 +161,6 @@ body {
 }
 
 .note-card-header h3 {
-  font-family: 'Syne', sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: #111;
@@ -204,7 +196,6 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
-  font-family: 'DM Sans', sans-serif;
   transition: color 0.15s, border-color 0.15s;
 }
 
