@@ -118,7 +118,6 @@ $customersNoOrders = $stmtNo->fetchAll();
               <div class="customer-name"><?= htmlspecialchars($c['name']) ?></div>
               <div class="customer-email"><?= htmlspecialchars($c['email'] ?? '—') ?></div>
             </div>
-            <span class="customer-arrow">→</span>
           </a>
         <?php endforeach; ?>
       <?php endif; ?>

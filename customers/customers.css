@@ -135,11 +135,6 @@ body {
   text-overflow: ellipsis;
 }
 
-.customer-row:hover {
-  color: #e63946;
-  transform: translateX(2px);
-}
-
 .empty {
   color: #aaa;
   font-size: 14px;

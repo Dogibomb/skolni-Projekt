@@ -28,12 +28,6 @@
   flex-direction: column;
 }
 
-.item:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  transform: translateY(-2px);
-  transition: all 0.2s;
-}
-
 .item h3 {
   font-size: 17px;
   margin-bottom: 6px;
